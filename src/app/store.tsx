@@ -1,0 +1,16 @@
+import { ThunkAction, Action } from '@reduxjs/toolkit';
+import configAppStore from './configAppStore';
+
+export const store = configAppStore();
+
+export type AppDispatch = typeof store.dispatch;
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
+
