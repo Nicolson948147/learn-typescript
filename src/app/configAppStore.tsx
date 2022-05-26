@@ -10,7 +10,7 @@ const configAppStore = (initialState = {}) => {
 
   const store = configureStore({
     reducer: {},
-    middleware: [...getDefaultMiddleware({ thunk: false, }), ...middlewares],
+    middleware: [...getDefaultMiddleware({ thunk: false }), ...middlewares],
     preloadedState: initialState,
     devTools: process.env.NODE_ENV !== 'production',
   });
@@ -18,6 +18,6 @@ const configAppStore = (initialState = {}) => {
   sagaMiddleware.run(rootSaga);
 
   return store;
-}
+};
 
 export default configAppStore;
