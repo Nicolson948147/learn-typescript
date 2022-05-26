@@ -28,7 +28,10 @@
       }
    ],
    "require-yield": "off",
-   "no-undef":"off"
+   "no-undef":"off",
+   "implicit-arrow-linebreak":"off",
+   "prefer-arrow-callback":"off",
+   "func-names":"off"
 	},
 	"settings": {
     "import/resolver": {
