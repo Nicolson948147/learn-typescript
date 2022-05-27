@@ -1,5 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
+import authReducer from 'features/auth/Login/authSlice';
 
 import { rootSaga } from '../rootSaga';
 
@@ -9,8 +10,13 @@ const configAppStore = (initialState = {}) => {
   const middlewares = [sagaMiddleware];
 
   const store = configureStore({
-    reducer: {},
-    middleware: [...getDefaultMiddleware({ thunk: false }), ...middlewares],
+    reducer: {
+      auth: authReducer,
+    },
+    middleware: [
+      ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
+      ...middlewares,
+    ],
     preloadedState: initialState,
     devTools: process.env.NODE_ENV !== 'production',
   });
