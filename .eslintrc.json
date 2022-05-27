@@ -15,8 +15,9 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "import/prefer-default-export": "off",
-		"react/jsx-filename-extension": [1, { "allow": "as-needed" ,"extensions": [".js", ".jsx"] }],
+		"react/jsx-filename-extension": "off",
     "react/jsx-one-expression-per-line": [1, { "allow":"literal" }],
+    "react/jsx-props-no-spreading":"off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -31,7 +32,8 @@
    "no-undef":"off",
    "implicit-arrow-linebreak":"off",
    "prefer-arrow-callback":"off",
-   "func-names":"off"
+   "func-names":"off",
+   "no-unused-vars": "warn"
 	},
 	"settings": {
     "import/resolver": {
