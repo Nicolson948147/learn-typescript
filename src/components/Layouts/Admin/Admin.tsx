@@ -3,8 +3,10 @@ import {
 } from '@mui/material';
 import { useAppDispatch } from 'app/hooks';
 import { authActions } from 'features/auth/Login/authSlice';
+import Dashboard from 'features/dashboard';
+import Student from 'features/student';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import * as Styled from './Admin.styled';
 import Sidebar from './Sidebar';
 
@@ -33,7 +35,12 @@ export function AdminLayout(props: AdminLayoutProps) {
           <Grid item xs={3}>
             <Sidebar />
           </Grid>
-          <Grid item xs={9}>Content</Grid>
+          <Grid item xs={9}>
+            <Routes>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="students" element={<Student />} />
+            </Routes>
+          </Grid>
         </Grid>
       </Styled.Container>
     </ThemeProvider>

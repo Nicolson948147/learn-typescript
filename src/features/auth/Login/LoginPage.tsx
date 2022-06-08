@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import type {} from '@mui/lab/themeAugmentation';
 import Button from '@mui/material/Button';
@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { useAuth } from 'hooks/useAuth';
 import { Container, loginTheme } from './LoginPage.styled';
 import { authActions, selectIsLogging } from './authSlice';
 
@@ -16,6 +17,11 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const isLogging = useAppSelector(selectIsLogging);
+  const isLoggedIn = useAuth();
+
+  if (isLoggedIn) {
+    return <Navigate to="/admin/dashboard" />;
+  }
 
   const handleLoginClick = () => {
     // TO DO:  get username + password from form login

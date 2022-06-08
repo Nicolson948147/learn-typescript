@@ -6,6 +6,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Dashboard from '@mui/icons-material/Dashboard';
 import PeopleAlt from '@mui/icons-material/PeopleAlt';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -20,24 +21,28 @@ export default function Sidebar() {
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <List disablePadding component="nav" aria-label="main mailbox folders">
-        <ListItemButton
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
-        >
-          <ListItemIcon>
-            <Dashboard color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Dashboard" />
-        </ListItemButton>
-        <ListItemButton
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-          <ListItemIcon>
-            <PeopleAlt color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Student" />
-        </ListItemButton>
+        <Link to="/admin/dashboard" style={{ color: 'inherit', textDecoration: 'none' }}>
+          <ListItemButton
+            selected={selectedIndex === 0}
+            onClick={(event) => handleListItemClick(event, 0)}
+          >
+            <ListItemIcon>
+              <Dashboard color="primary" />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItemButton>
+        </Link>
+        <Link to="/admin/students" style={{ color: 'inherit', textDecoration: 'none' }}>
+          <ListItemButton
+            selected={selectedIndex === 1}
+            onClick={(event) => handleListItemClick(event, 1)}
+          >
+            <ListItemIcon>
+              <PeopleAlt color="primary" />
+            </ListItemIcon>
+            <ListItemText primary="Student" />
+          </ListItemButton>
+        </Link>
       </List>
     </Box>
   );

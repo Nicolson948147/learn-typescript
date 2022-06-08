@@ -15,7 +15,7 @@ function* handleLogin(payload: LoginPayload) {
       name: `hihi la ${payload.username} day`,
     }));
     if (payload.navigate) {
-      payload.navigate('/admin');
+      payload.navigate('/admin/dashboard');
     }
   } catch (error) {
     yield put(authActions.loginFailed('hihi'));
