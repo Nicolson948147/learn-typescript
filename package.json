@@ -19,6 +19,8 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
+    "commitizen": "^4.2.4",
+    "cz-emoji-conventional": "1.0.1",
     "history": "4.10.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -34,7 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "commit": "cz"
   },
   "browserslist": {
     "production": [
@@ -58,5 +61,10 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji-conventional"
+    }
   }
 }
