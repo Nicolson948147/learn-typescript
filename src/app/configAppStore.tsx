@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import authReducer from 'features/auth/Login/authSlice';
+import dashboardReducer from 'features/dashboard/dashboardSlice';
 
 import { rootSaga } from '../rootSaga';
 
@@ -12,6 +13,7 @@ const configAppStore = (initialState = {}) => {
   const store = configureStore({
     reducer: {
       auth: authReducer,
+      dashboard: dashboardReducer,
     },
     middleware: [
       ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
